@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 
 const formSchema = yup.object().shape({
-    name: yup.string().required("Name is a required field."),
+    name: yup.string().min(2).required("Name is a required field."),
     size: yup.string().required("Must Select a Size"),
     pepperoni: yup.boolean().defined(),
     mushrooms: yup.boolean().defined(),
@@ -19,7 +19,7 @@ const Center = styled.div`
     display:flex;
     align-text:center;
     justify-content: center;
-     align-items: center;
+    align-items: center;
     
 `
 
@@ -113,104 +113,7 @@ export default function Form(){
     return(
 
         <Center>
-        <form onSubmit = {formSubmit}>
-            <h1>Place an Order!</h1>
-            <label htmlFor = 'name'>
-                What is your name?
-                <br/>
-                <input
-                    type = 'text'
-                    name = 'name'
-                    id = 'nameinput'
-                    placeholder = 'Name'
-                    value={formState.name}
-                    onChange={inputChange}
-                />
-            </label>
-            <br/>
-
-            <label htmlFor = 'size'>
-                What size pizza would you like?
-                <br/>
-                <select name = 'size' id = 'sizeinput' onChange = {inputChange}>
-                    <option name="default" value={null}></option>
-                    <option name="Sm" value='Sm'>Sm</option>
-                    <option name="Lg" value='Lg'>Lg</option>
-                    <option name="XL" value='XL'>XL</option>
-                </select>
-            </label>
-            <br/>
-
-            <div className = 'toppingsChecklist'>
-
-                <p>Select Toppings</p>
-
-                <label htmlFor = 'pepperoni'>
-                    <input
-                        type='checkbox'
-                        name='pepperoni'
-                        id = 'pepperoniCheckBox'
-                        checked={formState.pepperoni}
-                        onChange={inputChange}
-                    />
-                    Pepperoni
-                </label>
-                <br/>
-
-                <label htmlFor = 'mushrooms'>
-                    <input
-                        type='checkbox'
-                        name='mushrooms'
-                        id = 'mushroomsCheckBox'
-                        checked={formState.mushrooms}
-                        onChange={inputChange}
-                    />
-                    Mushrooms
-                </label>
-                <br/>
-
-                <label htmlFor = 'peppers'>
-                    <input
-                        type='checkbox'
-                        name='peppers'
-                        id = 'peppersCheckBox'
-                        checked={formState.peppers}
-                        onChange={inputChange}
-                    />
-                    Peppers
-                </label>
-                <br/>
-
-                <label htmlFor = 'sausage'>
-                    <input
-                        type='checkbox'
-                        name='sausage'
-                        id = 'sausageCheckBox'
-                        checked={formState.sausage}
-                        onChange={inputChange}
-                    />
-                    Sausage
-                </label>
-                <br/>
-
-            </div>
-
-            <label htmlFor = 'Special Instructions'>
-                Any special instructions?
-                <br/>
-                <textarea
-                    name = 'specInstr'
-                    id = 'specInstrInput'
-                    placeholder = 'Type instructions here...'
-                    value={formState.specInstr}
-                    onChange={inputChange}
-                />
-            </label>
-            <br/>
-            <button name = 'submit' disabled={buttonDisabled}>Submit</button>
-            <pre>{JSON.stringify(post, null, 2)}</pre>
-
-        </form>
+            Welcome  To Pizza Maker Press Order to complete
     </Center>
     )
 
